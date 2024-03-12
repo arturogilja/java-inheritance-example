@@ -52,4 +52,13 @@ public class BankAccount {
         String balanceString = String.format("%.2f", this.checkCurrentBalance());
         System.out.println(operation + " $" + amount + " ---- New balance: $" + balanceString);
     }
+
+    public void transferToAccount(double amount, BankAccount account){
+        if(this.checkCurrentBalance() < amount || amount < 0) {
+            System.out.println("ERROR");
+            return;
+        }
+        this.withdraw(amount);
+        account.deposit(amount);
+    }
 }

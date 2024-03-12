@@ -17,5 +17,12 @@ public class SavingsAccount extends BankAccount {
         this.deposit(interest);
     }
 
-
+    @Override
+    public void transferToAccount(double amount, BankAccount account) {
+        if(this.checkCurrentBalance() < 1000) {
+            System.out.println("ERROR");
+            return;
+        }
+        super.transferToAccount(amount, account);
+    }
 }
